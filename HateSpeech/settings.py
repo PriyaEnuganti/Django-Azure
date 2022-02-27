@@ -26,8 +26,12 @@ SECRET_KEY = '!4m_(yvgdxn%+x@lj!%_j&9gtoq+ml6-m2eeda8rdl%mfpw01r'
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_DIR = os.path.join(BASE_DIR,"Twitter/static")
 
-
+STATICFILES_DIRS = [
+    STATIC_DIR
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'Twitter'
 ]
 
@@ -48,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'HateSpeech.urls'
@@ -55,7 +62,7 @@ ROOT_URLCONF = 'HateSpeech.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'Twitter/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include,path
+from Twitter import views
 
 urlpatterns = [
-    path('Twitter/', include('Twitter.urls')),
+    #path('Twitter/', include('Twitter.urls')),
+    path('Twitter/',views.Classifier),
     path('admin/', admin.site.urls),
+    path('index/', views.index)
 ]

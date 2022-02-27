@@ -4,6 +4,7 @@ from django.shortcuts import render
 import Preprocessing as preprocess
 
 from django.http import JsonResponse
+from django.shortcuts import render
 import pickle
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -24,3 +25,7 @@ def Classifier(request):
             return JsonResponse({"Msg":'Hateful Tweet'},status=201 )
     except Exception as e:
         return JsonResponse({"Msg":'Unexpected Error'+str(e)},status=500)
+
+@csrf_exempt
+def index(request):
+    return render(request,'index.html')
