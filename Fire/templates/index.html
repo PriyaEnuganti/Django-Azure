@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forest Fire Detection</title>
+  </head>
+  <body>
+  <div style="padding: 2rem; margin: 4rem 2%; background-color: #EC9B54; color: #fff; font-size: 2.5rem;text-align: center; vertical-align: middle;">
+    SDAI FIRE ALERT SYSTEM
+  </div>
+  <div style="padding: 4rem 8rem 4rem 8rem ;margin: 6.5rem; background-color: #E0E1E7;text-align: center;">
+    <form onsubmit="event.preventDefault(); return uploadVideo()">
+      <div class="form-group">
+        <input
+          type="file"
+          name="fileUpload"
+          id="file_upload"
+          accept="video/mp4,video/x-m4v,video/*"
+          style="
+            width: 300px;
+          "
+        />
+        <input
+          type="submit"
+          value="Submit"
+          id="btn"
+          class="btn-primary"
+          style="width: 100pt; padding: 10px 2%; background-color: #0F1D62; color: #fff;"
+        />
+      </div>
+    </form>
+  </div>
+    <script src="{% static "index.js" %}"></script>
+  </body>
+</html>
